@@ -72,7 +72,7 @@ peer folder contains the protocol needed for introducing and recognizing  proces
 
 room folder contains the logic of creating a new room and joining an existing node.
 
-## 5. Conclusion
+## 6. Conclusion
 
 In conclusion, Wisper represents a significant advancement in secure, decentralized peer-to-peer communication. By leveraging local blockchains and a client-side approach, it addresses critical issues present in centralized chat applications. Here are the key takeaways:
 
