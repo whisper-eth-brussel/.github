@@ -29,7 +29,7 @@ For example, one of the use cases is in a company, board members can create a ro
 For the implementation we built at the hackathon, users downloads desktop application which is basically contains a node.js light-node implementation and React front-end. Wisper is fully open source and client-side. Since it is developed in a very clean way, anybody with a little coding or running node experience can verify this.
 
 ## 4. Architecture
-![Architecture](https://i.imgur.com/zxgjG2v.png)
+![Architecture](https://i.imgur.com/Rvyhgt2.png)
 
 This is the general architecture. Before breaking down the architecture, there is one big technology we use: **Desktop app that works on browser** . We developed our idea partially for the mobile app. Fully working demo is an desktop app built with electron, but client side parts working on browser with react app underneath. This enables to read all the code, and features that needs to connect a wallet with an extension is possible.
 
