@@ -8,8 +8,7 @@
 6. [Conclusion](#conclusion)
 
 ## 1. Introduction
-Wisper is a p2p chatting application that enables to create chat rooms without needing a trusted chat application by creating a private local blockchain among users. Communication protocol can be Wi-Fi (even though there is no internet connection on the network) , Bluetooth or any other alternative. Every time a user joins a chat, they establish p2p connection by getting every node on the chain and introducing themselves to them and start communicating. Wisper doesnt store any data. Its all client side.
-
+Wisper is a p2p chatting application that enables creating chat rooms without needing a trusted chat application by creating a private local blockchain among users. Communication protocol can be Wi-Fi (even though there is no internet connection on the network and trusting your ISP), Bluetooth or any other method. Every time a user joins a chat, they establish a p2p connection by connecting every node on the chain and introducing themselves to them and start communicating. Wisper doesn't store any data. It's all client side.
 
 ## 2. Problem We Solve
  Blockchains are only working with a proper internet connection, private blockchains are on the agenda, Adrian Brink, Cofounder of Anoma and Namada just made a speech about public networks are not that relieble when there is ongoing crisis such as war, disaster etc. There are lots of use cases for private local blockchains, and it they can solve so many problems if implemented. 
@@ -29,9 +28,9 @@ For example, one of the use cases is in a company, board members can create a ro
 For the implementation we built at the hackathon, users downloads desktop application which is basically contains a node.js light-node implementation and React front-end. Wisper is fully open source and client-side. Since it is developed in a very clean way, anybody with a little coding or running node experience can verify this.
 
 ## 4. Architecture
-![Architecture](https://i.imgur.com/Rvyhgt2.png)
+![Architecture](https://i.imgur.com/zxgjG2v.png)
 
-This is the general architecture. Before breaking down the architecture, there is one big technology we use: **Desktop app that works on browser** . We developed our idea partially for the mobile app. Fully working demo is an desktop app built with electron, but client side parts working on browser with react app underneath. This enables to read all the code, and features that needs to connect a wallet with an extension is possible.
+This is the general architecture. Before breaking down the architecture, there is one big technology we use: **Desktop app that works on browser** . We developed our idea partially for the mobile app. Fully working demo is an desktop app built with electron, but client side parts working on browser with react app underneath. This enables to read all the code, and features that requires using extensions such as **TLSNotary** or Metamask.
 
 ## **Node:**
 
@@ -49,6 +48,8 @@ This is the node deployed by the app. it contains three parts:
     When a new node joins the room, it fetches the existing addressBook from another node. After that new node communicates with the other nodes who are received. This ensures a fully decentrelized network protocol by giving the creator 0 priviledges. Other parties can continue to chat without needing creator
     **Consensus:**
     Actually, this blockchain does not require consensus between nodes, but we still need some verifications to ensure the received message sent by the owner of the address. So, before publishing the message user sign the TX, every node receives verify the signature.
+    **TLSNotary:**
+    As users can create proofs of the private messages they received and send, this opens a door for opportunities without compromising privacy. For example, a potential airdrop can be made in a private network according to this proofs.
 	
 
 ## 5. Code Review
@@ -72,7 +73,19 @@ peer folder contains the protocol needed for introducing and recognizing  proces
 
 room folder contains the logic of creating a new room and joining an existing node.
 
-## 6. Conclusion
+## 6. Higher Vision
+1. Platform Agnostic
+	For now, we have build the desktop app fully functional, and it can be implemented to any device. We made a demonstration app for mobile, but it is partially completed. Completing the mobile app is in our future plans.
+2. Communication Protocol Agnostic
+	For now, we have implemented peer-to-peer connection via WiFi, but our architecture supports any platform or communication protocol. Bluetooth functionality can be added.
+3. UX
+	By developing mobile app, users can share room info via qr, and even better, we can add NFC support, like in the ETHBrussels wristbands.
+4. File sharing
+	We can use on-chain data storage solutions to upload picture,voice record, and even voice calls.
+5. Network constraints
+	By developing the Gossip protocol, we can enhance the capacity of rooms.
+
+## 7. Conclusion
 
 In conclusion, Wisper represents a significant advancement in secure, decentralized peer-to-peer communication. By leveraging local blockchains and a client-side approach, it addresses critical issues present in centralized chat applications. Here are the key takeaways:
 
